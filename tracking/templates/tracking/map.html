@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Tracker (Free)</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 500px; margin-top: 10px; }
+        #alert { color: red; font-size: 18px; margin-top: 10px; }
+        #distance { font-size: 16px; margin-top: 5px; }
+      #suggestions {
+  position: absolute;
+  background: white;
+  width: 250px;
+  z-index: 1000;
+}
+
+#suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions div:hover {
+  background: #eee;
+}
+    </style>
+</head>
+<body>
+
+    
+    <h2>Real-Time Location Tracker at 11:00</h2>
+    <input 
+  type="text" 
+  id="destination" 
+  placeholder="Enter location"
+  oninput="getSuggestions()"
+/>
+
+<div id="suggestions"></div>
+    
+    
+<button onclick="startTracking()">Start Tracking</button>
+
+
+
+    <div id="map"></div>
+<div id="distance" > </div>
+<div id="eta"></div>
+<div id="alert"></div>
+
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="{% static 'tracking/js/liveTrack.js' %}?v=2"></script>
+
+    <p>this is is to help yoo.</p>
+</body>
+</html>
